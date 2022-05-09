@@ -6,7 +6,9 @@ object Constants {
         val questionList = ArrayList<Question>()
 
         val que1 = Question(
-            1, "What has to be broken before you can use it?",
+            1,
+            R.drawable.ic_launcher_riddle,
+            "What has to be broken before you can use it?",
             "An light",
             "An wall",
             "An egg",
@@ -18,7 +20,9 @@ object Constants {
 
         // 2
         val que2 = Question(
-            2, "A cowboy rode into town on Friday afternoon. He spent three days in town and then rode out on Friday. How is that possible?",
+            2,
+            R.drawable.ic_launcher_riddle,
+            "A cowboy rode into town on Friday afternoon. He spent three days in town and then rode out on Friday. How is that possible?",
             "Friday is the name of the man's horse.",
             "Friday is enemy of the man's.",
             "Friday is the name of the man father",
@@ -30,7 +34,9 @@ object Constants {
 
         // 3
         val que3 = Question(
-            3, " I am pronounced as one letter, but I am written with three. Me and my twin are either blue, green, or brown. What am I?",
+            3,
+            R.drawable.ic_launcher_riddle,
+            " I am pronounced as one letter, but I am written with three. Me and my twin are either blue, green, or brown. What am I?",
             "An light",
             "An eye.",
             "An man",
@@ -42,7 +48,9 @@ object Constants {
 
         // 4
         val que4 = Question(
-            4, "What is full of holes but can still hold water?",
+            4,
+            R.drawable.ic_launcher_riddle,
+            "What is full of holes but can still hold water?",
             "An dark",
             "An wall",
             "An egg",
@@ -54,7 +62,9 @@ object Constants {
 
         // 5
         val que5 = Question(
-            5, "What belongs to you but is used more by others?",
+            5,
+            R.drawable.ic_launcher_riddle,
+            "What belongs to you but is used more by others?",
             "your thought",
             "your name",
             "your strength",
