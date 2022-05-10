@@ -2,7 +2,7 @@ package com.candoanything.myquizapp
 
 object Constants {
 
-    fun getQuestion():ArrayList<Question>{
+    fun getQuestions():ArrayList<Question>{
         val questionList = ArrayList<Question>()
 
         val que1 = Question(
@@ -69,7 +69,7 @@ object Constants {
             "your name",
             "your strength",
             "your style",
-            3
+            2
 
         )
         questionList.add(que5)
