@@ -5,7 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    tools:context=".QuizQuestionsActivity">
+    tools:context=".QuizQuestionsActivity"
+    android:background="@color/white"
+    >
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -20,7 +23,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:contentDescription="Quiz Image"
-            tools:src = "@drawable/ic_launcher_riddle"/>
+            tools:src = "@drawable/ic_pokemon_one"/>
 
 
         <TextView
@@ -31,7 +34,8 @@
             android:gravity="center"
             android:textSize="22dp"
             android:textColor="@color/riddle"
-            tools:text="What country does this flag belong to?"
+            android:textStyle="bold"
+            tools:text="What this pokemon??"
             />
 
        <LinearLayout
@@ -122,7 +126,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:background="@color/riddle"
-            android:text="SUBMIT"
+            android:text="Confirm"
             android:textColor="@android:color/white"
             android:textSize="18sp"
             android:textStyle="bold"/>

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/ic_bg"
+    android:background="@drawable/ic_pokemon_bg"
     android:orientation="vertical"
     android:gravity="center"
     tools:context=".MainActivity">
@@ -16,7 +16,6 @@
         android:layout_marginStart="20dp"
         app:cardCornerRadius="20dp"
         android:layout_marginEnd="20dp"
-        android:background="@color/white"
         >
         <LinearLayout
             android:layout_width="match_parent"
@@ -28,7 +27,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Riddle Me..."
+                android:text="Pokemon Quiz"
                 android:textSize="30sp"
                 android:textStyle="bold"
                 android:gravity="center"
@@ -42,7 +41,7 @@
                 android:layout_marginTop="16dp"
                 android:textStyle="bold"
                 android:gravity="center"
-                android:textColor="#17CF02"
+                android:textColor="@color/riddle"
                 />
 
             <com.google.android.material.textfield.TextInputLayout

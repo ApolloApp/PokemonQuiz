@@ -1,6 +1,7 @@
 
 package com.candoanything.myquizapp
 
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.Typeface
 import android.os.Bundle
@@ -12,6 +13,10 @@ import androidx.core.content.ContextCompat
 
 class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
 
+
+
+    // Usename date
+    private var mUserName : String? = null
 
     //Create global variables for the views in the layout
     private var progressBar: ProgressBar?=null
@@ -27,11 +32,10 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
      * This function is auto created by Android when the Activity Class is created.
      */
 
-
+    private var mCurrentAnswers: Int = 0
     private var mCurrentPosition: Int = 1 // Default and the first question position
     private var mQuestionsList: ArrayList<Question>? = null
     // END
-
 
     private var mSelectedOptionPosition: Int = 0
     // END
@@ -43,6 +47,9 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
         // This is used to align the xml view to this class
         setContentView(R.layout.activity_quiz_questions)
 
+
+        //User name date
+        mUserName = intent.getStringExtra(Constants.USER_NAME)
 
         progressBar=findViewById(R.id.progressBar)
         tvProgress = findViewById(R.id.tv_progress)
@@ -80,7 +87,7 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
         if (mCurrentPosition == mQuestionsList!!.size) {
             buttonSubmit?.text = "FINISH"
         } else {
-            buttonSubmit?.text = "SUBMIT"
+            buttonSubmit?.text = "CONFIRM"
         }
         // END
         progressBar?.progress =
@@ -143,8 +150,14 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
                             setQuestion()
                         }
                         else -> {
+                            val intent = Intent(this, ResultActivity::class.java)
+                            intent.putExtra(Constants.USER_NAME, mUserName)
+                            intent.putExtra(Constants.CORRECT_ANSWERS, mCurrentAnswers)
+                            intent.putExtra(Constants.TOTAL_QUESTIONS, mQuestionsList?.size)
+                            startActivity(intent)
+                            finish()
 
-                            Toast.makeText(this@QuizQuestionsActivity, "No more riddles for resolve...", Toast.LENGTH_SHORT).show()
+
                         }
                     }
                 } else {
@@ -153,6 +166,8 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
                     // This is to check if the answer is wrong
                     if (question!!.correctAnswer != mSelectedOptionPosition) {
                         answerView(mSelectedOptionPosition, R.drawable.wrong_option_border_bg)
+                    }else{
+                        mCurrentAnswers++
                     }
 
                     // This is for correct answer
@@ -184,24 +199,28 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
                     this@QuizQuestionsActivity,
                     drawableView
                 )
+                tvOptionOne?.setTextColor(Color.parseColor("#FFFFFF"))
             }
             2 -> {
                 tvOptionTwo?.background = ContextCompat.getDrawable(
                     this@QuizQuestionsActivity,
                     drawableView
                 )
+                tvOptionTwo?.setTextColor(Color.parseColor("#FFFFFF"))
             }
             3 -> {
                 tvOptionThree?.background = ContextCompat.getDrawable(
                     this@QuizQuestionsActivity,
                     drawableView
                 )
+                tvOptionThree?.setTextColor(Color.parseColor("#FFFFFF"))
             }
             4 -> {
                 tvOptionFour?.background = ContextCompat.getDrawable(
                     this@QuizQuestionsActivity,
                     drawableView
                 )
+                tvOptionFour?.setTextColor(Color.parseColor("#FFFFFF"))
             }
         }
     }
@@ -213,7 +232,7 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
         mSelectedOptionPosition = selectedOptionNum
 
         tv.setTextColor(
-            Color.parseColor("#17CF02")
+            Color.parseColor("#CF021A")
         )
         tv.setTypeface(tv.typeface, Typeface.BOLD)
         tv.background = ContextCompat.getDrawable(
